@@ -25,7 +25,9 @@ const Hero = () => {
       <Box sx={{ p: "10% 5%" }}>
         <Grid container>
           <Grid item lg={6} md={6} sm={12} xs={12}>
-            <Box sx={{ width: "100%", backgroundColor: "red" }}>
+            <Box sx={{ width: "100%", 
+              // backgroundColor: "red" 
+              }}>
               <Typography
                 sx={{ color: "white", fontSize: "3rem", fontWeight: "600" }}
               >
@@ -58,19 +60,44 @@ const Hero = () => {
                       marginRight: "3px",
                     }}
                   />
+                  <span style={{color:'white', fontSize:'1rem' , }}>
                   live demo
+                  </span>
                 </IconButton>
               </Box>
 
-             <Box sx={{
-                 width:'50%',
-              p:'2rem',
-              border: '1px solid black', 
-              borderTopLeftRadius: '50% 30px',
-              borderTopRightRadius: '50% 30px',
-              borderRadius:'30px'
-              }}>
-             <Box sx={{ display: "flex", gap: "10px" }}>
+             <Box
+             sx={{
+              marginTop:'10rem',
+              width: '50%',
+              p: '2rem',
+              border: '1px solid white',
+              borderTop:'none',
+              borderRadius: '20px', 
+              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+              position: 'relative',
+              background:'#2b3328',
+              
+          
+              // Pseudo-element for downward curved top border
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                width:'90%',
+                margin:'0 auto',
+                top: '-7px', 
+                left: 0,
+                right: 0,
+                height: '10px', 
+                backgroundColor: '#fff', 
+                borderRadius: '0% 0% 50% 50%', 
+                borderBottom:'1px solid white',
+                background:'transparent'
+                
+              },
+            }}
+             >
+             <Box sx={{ display: "flex", gap: "10px" , mb:'0.5rem' }}>
                 <Box sx={{ display: "flex" }}>
                   <Avatar>
                     <img src="/hero/herodp.jpg" alt="/hero/herodp.jpg" />
@@ -83,7 +110,7 @@ const Hero = () => {
                   <Rating name="half-rating" defaultValue={5} size="small" />
                 </Box>
               </Box>
-              <Typography>
+              <Typography sx={{color:'white'}}>
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam eius assumenda cumque tenetur perferendis nam tempora in blanditiis accusantium tempore!
               </Typography>
              </Box>
