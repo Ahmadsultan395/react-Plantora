@@ -5,12 +5,22 @@ import {
   IconButton,
   Typography,
   Rating,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import React from "react";
 import Btn from "../../../Components/Button/Btn";
 import { IoPlayCircleOutline } from "react-icons/io5";
+import HeroCard from "./HeroCard";
+import Trendyplant from "../TrendyPlant/Trendyplant";
+
+
+
 
 const Hero = () => {
+  const theme  = useTheme();
+  const isMedium = useMediaQuery('(max-width:900px)');
+
   return (
     <Box
       sx={{
@@ -19,7 +29,7 @@ const Hero = () => {
         backgroundSize: "cover",
         objectFit: "cover",
         width: "100%",
-        height: "100vh",
+        height: "auto",
       }}
     >
       <Box sx={{ p: "10% 5%" }}>
@@ -71,7 +81,7 @@ const Hero = () => {
               marginTop:'10rem',
               width: '50%',
               p: '2rem',
-              border: '1px solid white',
+              border: '1px solid #5b6058',
               borderTop:'none',
               borderRadius: '20px', 
               boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
@@ -117,9 +127,16 @@ const Hero = () => {
             </Box>
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
-            jafjja
+            <Box sx={{display:'flex', justifyContent: isMedium ? 'center' :'end'}}>
+            <HeroCard/>
+            </Box>
           </Grid>
         </Grid>
+      </Box>
+
+      {/* --------------trendy plant ------------- */}
+      <Box>
+        <Trendyplant/>
       </Box>
     </Box>
   );
